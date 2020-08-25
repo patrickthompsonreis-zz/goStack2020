@@ -15,8 +15,6 @@ function App () {
   }, []);
 
   async function handleAddProject() {
-    // setProjects([...projects, `Novo projeto ${Date.now()}`])
-
     const response = await api.post('projects', {
       title: `Novo projeto ${Date.now()}`,
       owner: "Patrick Thompson Reis"
@@ -32,7 +30,11 @@ function App () {
       <Header title="Projetos" />
 
       <ul>
-        {projects.map(project => <li key={project.id}>{project.title}</li>)}
+        {projects.map(project => 
+          <li key={project.id}>
+            {project.title}
+          </li>
+        )}
       </ul>
 
       <button type="button" onClick={handleAddProject}>Adicionar projeto</button>
